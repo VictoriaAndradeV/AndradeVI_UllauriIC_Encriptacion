@@ -1,14 +1,25 @@
 package org.example;
 
-public class Encriptador <T>{
+// CLASE GENERICA
+public class Encriptador <T, K>{
 
-    private AlgoritmoEncriptador<T> algoritmo;
+    // variable que almacena el algoritmo de encriptacion seleccionado
+    // T = tipo del dato del mensaje
+    // K = llave/valor de desplazamiento
+    private AlgoritmoEncriptador<T, K> algoritmo;
 
-    public Encriptador(AlgoritmoEncriptador<T> algoritmo) {
+    // Constructor, recibe como parametro el algoritmo que implementa
+    // la interfaz generica //
+    public Encriptador(AlgoritmoEncriptador<T, K> algoritmo) {
         this.algoritmo = algoritmo;
     }
 
-    public T encriptar(T dato, int desplazamiento) {
+    /*
+       metodo que ejecuta el algoritmo de encriptacion
+       recibe el mensaje a encriptar y la llave correspondiente,
+       para cada uno de los algoritmos
+     */
+    public T encriptar(T dato, K desplazamiento) {
         return algoritmo.encriptar(dato, desplazamiento);
     }
 
