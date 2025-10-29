@@ -11,7 +11,7 @@ public class Main {
         System.out.println("\n ALGORITMO POR DESPLAZAMIENTO \n");
         System.out.println("1- Datos de entrada");
 
-        String cadenaOriginal = "HELLO";
+        String cadenaOriginal = "ZAPATO";
         System.out.println("Texto original: \t\t" + "\"" +cadenaOriginal +"\"");
 
         int desplazamiento = 3;
