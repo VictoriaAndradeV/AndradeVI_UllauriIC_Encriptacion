@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -43,16 +44,17 @@ public class Main {
 
     //              Test Ejercicio 2
     //           ENCRIPTACIÓN POR BITS
-    public static void testEncriptacionPorBits(){
+    public static void testEncriptacionPorBits() {
         // Se crea un encriptador generico, usa el algoritmo por bits
-        Encriptador<List<Character>, String> encriptador = new Encriptador(new EncripPorBit());
+        Encriptador<List<Integer>, String> encriptador = new Encriptador(new EncripPorBit());
 
         System.out.println("\n ALGORITMO POR BITS \n");
         System.out.println("1- Datos de entrada");
 
-        // Lista de caracteres que contiene el mensaje a encriptar
-        List<Character> mensaje = Arrays.asList('H', 'E', 'L', 'L', 'O');
-        System.out.printf("%-20s\"%s\"%n", "Texto original:", mensaje);
+        // Texto original (para imprimirlo tal cual)
+        String textoOriginal = "HELLO";
+        System.out.printf("%-20s\"%s\"%n", "Texto original:", Arrays.toString(textoOriginal.chars().mapToObj(c -> (char) c).toArray()));
+
 
         // variable que representa la llave (palabra clave)
         // usada para encriptar el mensaje //
@@ -63,7 +65,17 @@ public class Main {
         // Seccion en el que se muestra el proceso de encriptacion
         System.out.println("2- Proceso \n");
 
-        // llamada del metodo encriptar de la clase generica
-        encriptador.encriptar(mensaje, llave);
+        //convertimos el "hello" a lista de ASCII con List<Integer>
+        List<Integer> asciiMensaje = new ArrayList<Integer>();
+        for (int i = 0; i < textoOriginal.length(); i++) {
+            asciiMensaje.add(Integer.valueOf((int) textoOriginal.charAt(i)));
+        }
+
+        //llamamos del metodo encriptar de la clase generica
+        List<Integer> resultado = encriptador.encriptar(asciiMensaje, llave);
+
+        //en la salida pasamos la lista con el valor del mensaje encriptado
+        System.out.println("\n3- Salida");
+        System.out.println(resultado);
     }
 }
