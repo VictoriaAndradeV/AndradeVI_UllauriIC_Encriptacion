@@ -4,10 +4,11 @@ package org.example;
 Clase que implementa el AlgoritmoEncriptador por desplazamiento
 Para cadenas de texto (String)
  */
-public class EncripPorDesplazamientoS implements AlgoritmoEncriptador<String>{
+public class EncripPorDesplazamientoS implements AlgoritmoEncriptador<String, Integer>{
+
 
     @Override
-    public String encriptar(String mensaje, int desplazamiento) {
+    public String encriptar(String mensaje, Integer desplazamiento) {
         //variable que almacena el nuevo codigo de cada letra, ya que se le suma su desplazamiento
         int codigoNuevo;
         //variable que transforma las letras pasadas a mayuscula
